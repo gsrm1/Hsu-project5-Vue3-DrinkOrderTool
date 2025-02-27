@@ -38,12 +38,12 @@
             </div>
             <div class="card-body px-4">
               <div class="mb-3">
-                <label for="productNum" class="form-label">數量</label>
+                <label for="productNum" class="form-label">數量Quantity</label>
                 <input type="number" class="form-control" id="productNum" placeholder="數量" min="0" v-model="temp.count"
                   @change="checkCount" />
               </div>
               <div class="mb-3">
-                <label for="productNum" class="form-label d-block">冰塊*</label>
+                <label for="productNum" class="form-label d-block">冰塊Ice*</label>
                 <div class="form-check form-check-inline" v-for="(ice, key) in (temp?.defaults?.ice || iceType)"
                   :key="'ice' + key">
                   <input class="form-check-input" name="iceType" type="radio" :id="'ice' + key" :value="ice"
@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label for="productNum" class="form-label d-block">甜度*</label>
+                <label for="productNum" class="form-label d-block">甜度Sugar*</label>
                 <div class="form-check form-check-inline" v-for="(sugar, key) in (temp?.defaults?.sugar || sugarType)"
                   :key="'sugar' + key">
                   <input class="form-check-input" name="sugarType" type="radio" :id="'sugar' + key" :value="sugar"
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label for="productNum" class="form-label d-block">加料+10元</label>
+                <label for="productNum" class="form-label d-block">加料+10元 Toppings+10$</label>
                 <div class="form-check form-check-inline" v-for="(toppings, key) in selectedToppingTypes"
                   :key="'toppings' + key">
                   <input class="form-check-input" type="checkbox" :id="'toppings' + key" :value="toppings"
@@ -70,16 +70,16 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label for="productNotice" class="form-label">備註</label>
+                <label for="productNotice" class="form-label">備註Notes</label>
                 <textarea class="form-control" id="productNotice" rows="2" placeholder="請輸入備註"
                   v-model="temp.notice"></textarea>
               </div>
               <div class="d-flex gap-2">
                 <button class="btn btn-outline-primary w-100" type="button" @click.prevent="cancelSelect">
-                  取消
+                  取消Cancel
                 </button>
                 <button class="btn btn-primary w-100" type="button" @click.prevent="addToCart">
-                  加入購物車
+                  加入購物車Add
                 </button>
               </div>
             </div>
@@ -119,10 +119,10 @@
               <p class="text-end">共 NT$ {{cartTotal}} 元</p>
               <div class="d-flex gap-2">
                 <button class="btn btn-sm btn-secondary w-50" @click.prevent="clearCart">
-                  清空購物車
+                  清空購物車Clear
                 </button>
                 <button class="btn btn-sm btn-primary w-50" @click.prevent="createOrder">
-                  產生新訂單
+                  產生新訂單New Order
                 </button>
               </div>
             </div>
@@ -162,16 +162,16 @@
             </tr>
           </tbody>
         </table>
-        <p class="mt-3 mb-1">訂單成立時間：{{orderDate}}</p>
-        <p class="mb-1">總杯數：{{orderCount}}</p>
-        <p class="mb-1">付款狀態：{{payment}}</p>
+        <p class="mt-3 mb-1">訂單成立時間Time：{{orderDate}}</p>
+        <p class="mb-1">總杯數Cups：{{orderCount}}</p>
+        <p class="mb-1">付款狀態PaymentStatus：{{payment}}</p>
         <p class="text-end">共 NT$ {{orderTotal}} 元</p>
         <div class="d-flex gap-2" v-if="this.payment !== '已付款！如需下新訂單請重新選飲品'">
           <button class="btn btn-sm btn-secondary w-100" @click.prevent="cancelOrder">
-            取消訂單
+            取消訂單Cancel
           </button>
           <button class="btn btn-sm btn-primary w-100" @click.prevent="payOrder">
-            確認付款
+            確認付款Pay
           </button>
         </div>
       </div>
